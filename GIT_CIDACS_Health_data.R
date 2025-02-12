@@ -457,4 +457,3 @@ merged_result_df <- merged_result_df[order( merged_result_df$birth_municip, merg
 # write csv
 #write.csv(merged_result_df, "GIT_ts_dataset.csv", row.names = FALSE)
 
-

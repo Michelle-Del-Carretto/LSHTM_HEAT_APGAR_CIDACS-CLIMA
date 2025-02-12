@@ -142,4 +142,12 @@ results <- lapply(split(Tmed2, Tmed2$koppen_broad), function(Tmed2) {
 # Print results
 print(results)
 
+# A (tropical)
+# Q05  Q50   Q95
+# 17.4 23.6  28
+
+# C (temperate)
+#Q05  Q50  Q95
+#14.6 20.6 25.6
+
 
