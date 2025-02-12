@@ -47,11 +47,6 @@ This script executes the case-crossover models using the prepared datasets. It i
 6. *GIT_GIDACS_CCsubgroup.R*  
 This script executes the case-crossover models for subgroups.
 
-Links 
------
-(DATASETS? alvares paper?)
-For more information, visit the `official website <http://example.com>`_.
-
 Declaration 
 ----------
 **Ethics approval:** As the study analyzed de-identified publicly available data, ethical approval was not required in accordance with Resolução N° 510 (7 April 2016) of the Brazilian Ethics System (Sistema CEP-CONEP) and confirmed with the London School of Hygiene and Tropical Medicine (Reference 30472 and 30657). 
