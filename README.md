@@ -44,7 +44,8 @@ Population-weighted percentiles are calculated for the state of São Paulo and f
 The health dataset, containing only case data, is reformatted by adding control rows. The exposure dataset is adjusted to include lagged values. The two datasets are then merged to create a format suitable for case-crossover analyses.
 4. *GIT_GIDACS_CCmain.R*  
 This script executes the case-crossover models using the prepared datasets. It includes analyses for all low APGAR scores (0-7) and their respective categories (0-2, 3-5, 6-7), along with sensitivity analyses to assess the robustness of the results.
-6. *do*
+6. *GIT_GIDACS_CCsubgroup.R*  
+This script executes the case-crossover models for subgroups.
 
 Links 
 -----
@@ -72,7 +73,7 @@ graph TD;
   G["**Clean exposure data** <br> (dataset_name.R)"] ---> H(("**Process data for case-crossover analysis** <br> (GIT_CIDACS_CCprocessing.R)"))
   H ---> I["**Case-crossover dataset** <br> (GIT_CCdataset.csv)"]
   I ---> J(("**Case-crossover analysis (Main, APGAR categories, Sensitivity)** <br> (GIT_GIDACS_CCmain.R)"))
-  I ---> K(("**Case-crossover analysis (Subgroups)** <br> (XXX)"))
+  I ---> K(("**Case-crossover analysis (Subgroups)** <br> (GIT_GIDACS_CCsubgroup.R)"))
   G ---> L(("**Exposure dataset processing (e.g.pupulation weighted percentiles)** (GIT_GIDACS_Exposure_data.R)"))
   G ---> M(("**Exposure-Response investigation and Quasi-Poisson sensitivity analysis** <br> (XXX)"))
   F ---> M
