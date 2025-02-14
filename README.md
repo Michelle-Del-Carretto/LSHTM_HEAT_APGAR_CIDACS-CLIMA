@@ -30,8 +30,10 @@ Köppen climate zone classification for each municipality.
 6. *GIT_health_dataset.csv*  
 Cleaned dataset containing only cases of low APGAR scores.
 7. *GIT_ts_dataset.csv*  
-Time-series dataset with total births and total low APGAR births across municipalities during the study period.
-8. *GIT_CCdataset.csv*  
+Timeseries dataset with total births and total low APGAR births across municipalities during the study period. 
+8. *GIT_complete_ts_dataset.csv*  
+Complete timesries (2013-2019) containing birth count and low APGAR count for all municipalities that had at least one low APGAR in the study period.
+9. *GIT_CCdataset.csv*  
 Case-crossover dataset including low APGAR cases, matched control days, and lagged exposure values.
 
 Analysis steps
@@ -48,6 +50,8 @@ Investigation of seasonal patterns in temperature and low APGAR and unadjusted r
 This script executes the case-crossover models using the prepared datasets. It includes analyses for all low APGAR scores (0-7) and their respective categories (0-2, 3-5, 6-7), along with sensitivity analyses to assess the robustness of the results.
 6. *GIT_GIDACS_CCsubgroup.R*  
 This script executes the case-crossover models for subgroups.
+7. *GIT_GIDACS_Quasi_poisson.R*  
+This script executes the conditional quasi-Poisson equivalent of the case-crossover model.
 
 Declaration 
 ----------
