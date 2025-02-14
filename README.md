@@ -88,6 +88,11 @@ end
   O ---> P(("**Quasi-Poisson sensitivity analysis** <br> (GIT_GIDACS_Quasi_poisson.R)"))
   G ---> P
 
+subgraph Main analyses
+J
+K
+end
+
 %% Define class styles for blue nodes
   classDef blue fill:#ADD8E6,stroke:#000000,stroke-width:1px;
   class A,B,C,E,F,G,I,O blue;
