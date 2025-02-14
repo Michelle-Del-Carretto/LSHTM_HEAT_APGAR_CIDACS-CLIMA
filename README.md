@@ -80,11 +80,13 @@ end
   G ---> L(("**Exposure dataset processing (e.g.pupulation weighted percentiles)** (GIT_GIDACS_Exposure_data.R)"))
   G ---> M(("**Exposure-Response investigation** <br> (GIT_GIDACS_Exposure_response.R)"))
   F ---> M
-
+  D ---> O["**Complete timeseries data** <br> (GIT_complete_ts_dataset.csv)"]
+  O ---> P(("**Quasi-Poisson sensitivity analysis** <br> (GIT_GIDACS_Quasi_poisson.R)"))
+  G ---> P
 
 %% Define class styles for blue nodes
   classDef blue fill:#ADD8E6,stroke:#000000,stroke-width:1px;
-  class A,B,C,E,F,G,I blue;
+  class A,B,C,E,F,G,I,O blue;
 
 
 
