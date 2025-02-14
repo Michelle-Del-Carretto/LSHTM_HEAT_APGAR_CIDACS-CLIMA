@@ -16,7 +16,8 @@
 # 2) Attach municipality-level metrics (IBP, Köppen) 
 # 3) Descriptive statistics (counts, percentages and Chi-2)
 # 4) Save dataset for case-crossover analysis
-# 5) Format & save time series dataset
+# 5) Format & save time-series dataset
+# 6) Format & save complete time-series dataset
 
 ############################################################
 # Load datasets #
@@ -435,7 +436,7 @@ result_df$year <- format(result_df$dob, "%Y")
 
 # How many unique birth municipalities
 result_df$birth_municip <- droplevels(result_df$birth_municip)
-nlevels(result_df$birth_municip) #448 
+nlevels(result_df$birth_municip) # 448 municipalities have births
 
 # Range of dates
 range(result_df$dob)
@@ -456,4 +457,34 @@ merged_result_df <- merged_result_df[order( merged_result_df$birth_municip, merg
 
 # write csv
 #write.csv(merged_result_df, "GIT_ts_dataset.csv", row.names = FALSE)
+
+############################################################
+# Format and save complete timeseries dataset #
+############################################################
+
+# convert municipality code to character
+low_apgar_df$birth_municip <- as.character(low_apgar_df$birth_municip) 
+
+# Create a complete grid of all dates and municipalities (with at least 1 low APGAR between 2013-2019)
+all_dates <- seq(as.Date("2013-01-01"), as.Date("2019-12-31"), by = "day")
+all_municipalities <- unique(low_apgar_df$birth_municip) # 274 municipalities have at least 1 low APGAR
+complete_grid <- expand.grid(dob = all_dates, birth_municip = all_municipalities)
+
+# merge grid with timeseries and fill missing values with 0
+ts_complete <- merge(complete_grid, merged_result_df, by = c("dob", "birth_municip"), all.x = TRUE)[, #keeps all the rows from the left dataframe (in this case, complete_grid), and adds data from the right dataframe (merged_result_df)
+                   c("dob", "birth_municip", "birth_count", "low_apgar_count")]
+ts_complete$birth_count[is.na(ts_complete$birth_count)] <- 0 #issue later so convert before log in model
+ts_complete$low_apgar_count[is.na(ts_complete$low_apgar_count)] <- 0
+
+# generate month, year and day-of-week
+ts_complete$month  <- as.factor(months(ts_complete$dob))
+ts_complete$year   <- as.factor(format(ts_complete$dob, format="%Y") )
+ts_complete$dow    <- as.factor(weekdays(ts_complete$dob))
+
+# order by municipality
+ts_complete <- ts_complete[order(ts_complete$birth_municip, ts_complete$dob), ]
+ts_complete$birth_municip <- as.factor(ts_complete$birth_municip) 
+
+# write csv
+#write.csv(ts_complete, "GIT_complete_ts_dataset.csv", row.names = FALSE)
 
