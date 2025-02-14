@@ -19,9 +19,9 @@ Data
 
 Datasets
 ------------
-1. *dataset_name.R*  
+1. *DNSP_2010_2019 copy.RData*  
 Raw health data on all live births extracted from SINASC, prior to cleaning or processing.
-3. *dataset_name.R*  
+3. *Updated_exposures.RData*  
 Exposure data with preliminary processing applied.
 4. *BDI_Municipalities-Level_Short.csv*  
 Municipality-level deprivation index data.
@@ -66,10 +66,10 @@ Thanks for reading.
 ```mermaid
 graph TD;
 subgraph Original Data
-A["**Raw SINASC data** <br> (dataset_name.R)"]
+A["**Raw SINASC data** <br> (DNSP_2010_2019 copy.RData)"]
 B["**Municipality-level IBP data** <br> (BDI_Municipalities-Level_Short.csv)"]
 C["**Municipality-level Köppen climate data** <br> (Koppen_municipalities_distinct2.csv)"]
-G["**Clean exposure data** <br> (dataset_name.R)"]
+G["**Clean exposure data** <br> (Updated_exposures.RData)"]
 end
   A ---> D(("**Processing and descriptive statistics** <br> (GIT_CIDACS_Health_data.R)"))
   B ---> D
