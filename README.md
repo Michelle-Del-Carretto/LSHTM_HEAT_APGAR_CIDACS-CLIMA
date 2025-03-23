@@ -52,6 +52,8 @@ This script executes the case-crossover models using the prepared datasets. It i
 This script executes the case-crossover models for subgroups.
 7. *GIT_GIDACS_Quasi_poisson.R*  
 This script executes the conditional quasi-Poisson equivalent of the case-crossover model.
+8. *GIT_GIDACS_mixed-risk.R*  
+ Executes the case-crossover model on a larger sample (mixed-risk births).
 
 Declaration 
 ----------
