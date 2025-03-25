@@ -18,9 +18,8 @@
 # Load datasets & packages #
 ############################################################
 
-setwd("~/Documents/LSHTM project/Updated exposures")
-load("Updated_exposures.RData")
-setwd("~/Documents/LSHTM project/R code")
+setwd()
+load("Updated_exposures copy.RData")
 complete_ts <- read.csv("GIT_complete_ts_dataset.csv")
 
 library(gnm)

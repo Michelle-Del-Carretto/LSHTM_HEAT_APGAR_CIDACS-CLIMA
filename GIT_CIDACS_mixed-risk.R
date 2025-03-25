@@ -22,10 +22,10 @@
 ############################################################
 
 # set working directory
-setwd("~/Documents/LSHTM project/R code")
+setwd()
 
 #load dataset 
-load("/Users/michelledelcarretto/Documents/LSHTM project/R code/DNSP_2010_2019 copy.RData")
+load("DNSP_2010_2019_compressed.RData")
 
 
 ############################################################
@@ -113,10 +113,7 @@ rm(combined_dataframe)
 # Load datasets #
 ############################################################
 
-setwd("~/Documents/LSHTM project/Updated exposures")
-load("Updated_exposures.RData")
-
-setwd("~/Documents/LSHTM project/R code")
+load("Updated_exposures copy.RData")
 
 library(data.table)
 
