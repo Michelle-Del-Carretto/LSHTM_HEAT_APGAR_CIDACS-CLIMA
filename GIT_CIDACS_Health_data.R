@@ -2,7 +2,7 @@
 ############################################################
 
 # Analysis from:
-# 'Acute heat exposure and low APGAR score in newborns: A time-stratified case-crossover analysis 
+# 'hort-term ambient heat exposure and low APGAR score in newborns: A time-stratified case-crossover analysis 
 # in São Paulo state, Brazil'
 
 # Date of code creation:
