@@ -21,7 +21,7 @@ Datasets
 ------------
 1. *DNSP_2010_2019_compressed.RData*  
 Raw health data on all live births extracted from SINASC, prior to cleaning or processing.
-3. *Updated_exposures.csv*  
+3. *Updated_exposures copy.RData*  
 Exposure data with preliminary processing applied.
 4. *BDI_Municipalities-Level_Short.csv*  
 Municipality-level deprivation index data.
@@ -71,7 +71,7 @@ subgraph Original Data
 A["**Raw SINASC data** <br> (DNSP_2010_2019_compressed.RData)"]
 B["**Municipality-level IBP data** <br> (BDI_Municipalities-Level_Short.csv)"]
 C["**Municipality-level Köppen climate data** <br> (Koppen_municipalities_distinct2.csv)"]
-G["**Clean exposure data** <br> (Updated_exposures.csv)"]
+G["**Clean exposure data** <br> (Updated_exposures copy.RData)"]
 end
   A ---> D(("**Processing and descriptive statistics** <br> (GIT_CIDACS_Health_data.R)"))
   B ---> D
