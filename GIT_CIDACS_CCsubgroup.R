@@ -17,7 +17,7 @@
 # Load datasets #
 ############################################################
 
-setwd("~/Documents/LSHTM project/R code")
+setwd()
 data <- read.csv("GIT_CCdataset.csv")
 
 library(dlnm); library(survival);library(splines)
@@ -33,7 +33,7 @@ pop_quantiles <-c(14.8, 20.9, 26.1)
 data$RH01 <- rowMeans(data[, c("Hmed", "Hmed1")]) 
 
 # convert variables to factors
-cols_to_convert <- c("bin_mage", "bin_edu","ethnicity","bin_parity_2","bin_prenatal_care", "delivery_mod", "combined_delivery_mod", "sex", "q_IBP", "Koppen" )
+cols_to_convert <- c("bin_mage", "bin_edu","ethnicity","bin_parity_2","bin_prenatal_care", "sex", "q_IBP", "Koppen" )
 data[cols_to_convert] <- lapply(data[cols_to_convert], factor) # Convert the specified columns to factors
 str(data)
 
@@ -58,12 +58,6 @@ df_multi <- subset(data, bin_parity_2 == "Multiparous")
 df_delay <- subset(data, bin_prenatal_care == "Access after 1st trimester")
 df_timely <- subset(data, bin_prenatal_care == "Access in 1st trimester")
 
-df_vaginal <- subset(data, combined_delivery_mod == "Vaginal")
-df_caes <- subset(data, combined_delivery_mod %in% c("caesarean (Other)", "caesarean (Pre-Labour initiation)","caesarean (Post-Labour initiation)"))
-df_post_labour <- subset(data, combined_delivery_mod == "caesarean (Post-Labour initiation)")
-df_pre_labour <- subset(data, combined_delivery_mod == "caesarean (Pre-Labour initiation)")
-df_caes_other <- subset(data, combined_delivery_mod == "caesarean (Other)")
-
 df_mal <- subset(data, sex == "Male")
 df_fem <- subset(data, sex == "Female")
 
@@ -86,8 +80,8 @@ df_cwb <- subset(data, Koppen == "Cwb")
 ############################################################
 
 # List of datasets to iterate over
-datasets <-   list(df_bel_20, df_20_34, df_ab_35, df_furthered,        df_highschool,         df_asian, df_black, df_indig,    df_mixed, df_white, df_nulli,      df_primi,     df_multi,    df_delay,                     df_timely,               df_vaginal, df_caes,    df_pre_labour,                      df_post_labour,                      df_caes_other,       df_mal,  df_fem, df_one,  df_two, df_three, df_four )
-dataset_names <- c("<20",     "20-34",  ">=35",   "Further education", "Highschool or below", "Asian",  "Black", "Indigenous", "Mixed",  "White",  "Nulliparous","Primiparous","Multiparous","Access after 1st trimester","Access in 1st trimester","Vaginal", "Caesarean", "Caesarean (Pre-Labour initiation)","Caesarean (Post-Labour initiation)","Caesarean (Other)", "Male", "Female","IBP 1", "IBP 2", "IBP 3", "IBP 4")
+datasets <-   list(df_bel_20, df_20_34, df_ab_35, df_furthered,        df_highschool,         df_asian, df_black, df_indig,    df_mixed, df_white, df_nulli,      df_primi,     df_multi,    df_delay,                     df_timely,       df_mal,  df_fem, df_one,  df_two, df_three, df_four )
+dataset_names <- c("<20",     "20-34",  ">=35",   "Further education", "Highschool or below", "Asian",  "Black", "Indigenous", "Mixed",  "White",  "Nulliparous","Primiparous","Multiparous","Access after 1st trimester","Access in 1st trimester", "Male", "Female","IBP 1", "IBP 2", "IBP 3", "IBP 4")
 
 # Initialize an empty list to store ORs
 or_results <- list()  
