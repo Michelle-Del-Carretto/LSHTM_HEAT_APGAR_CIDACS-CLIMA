@@ -24,10 +24,10 @@
 ############################################################
 
 # set working directory
-setwd("~/Documents/LSHTM project/R code")
+setwd()
 
 #load dataset 
-load("/Users/michelledelcarretto/Documents/LSHTM project/R code/DNSP_2010_2019 copy.RData")
+load("DNSP_2010_2019_compressed.RData")
 df_ibp <- read.csv("BDI_Municipalities-Level_Short.csv")
 df_koppen <- read.csv("Koppen_municipalities_distinct2.csv")
 
@@ -188,20 +188,6 @@ combined_dataframe$delivery_mod <- factor(combined_dataframe$delivery_mod, level
 summary(combined_dataframe$delivery_mod)
 
 
-###### Delivery mode (C-section initiation) ######
-summary(combined_dataframe$STCESPARTO)
-
-# Convert 9 to NA
-combined_dataframe$emer_c_sec <- combined_dataframe$STCESPARTO
-combined_dataframe$emer_c_sec[combined_dataframe$emer_c_sec == 9] <- NA
-
-# label factor
-combined_dataframe$emer_c_sec <- factor(combined_dataframe$emer_c_sec, levels = c("1", "2", "3"), labels = c("Pre-Labour initiation", "Post-Labour initiation", "Not applicable")) 
-
-# check
-summary(combined_dataframe$emer_c_sec)
-
-
 ###### Prenatal care initiation (access proxy) ######
 summary(combined_dataframe$MESPRENAT)
 
@@ -317,23 +303,6 @@ summary(combined_dataframe$Koppen)
 # Descriptive statistics #
 ############################################################
 
-###### Tidy delivery mode ######
-# Cross tabulation of delivery mode and emergency c-section
-table(combined_dataframe$emer_c_sec, combined_dataframe$delivery_mod,useNA = "ifany")
-
-# Create a new column for combined delivery mode 
-combined_dataframe$combined_delivery_mod <- with(combined_dataframe, 
-                                            ifelse(is.na(emer_c_sec) & delivery_mod == "Vaginal", "Vaginal", # missing in emer_c_sec and present in delivery_mod as vaginal, then vaginal
-                                            ifelse(is.na(emer_c_sec) & delivery_mod == "C-section", "caesarean (Other)", # missing in emer_c_sec and present in delivery_mod as caesarean, then caesarean
-                                            ifelse(is.na(delivery_mod), NA, # missing in delivery_mod then NA
-                                            ifelse(delivery_mod == "Vaginal", "Vaginal", # if delivery_mod vaginal then always vaginal
-                                            ifelse(delivery_mod == "C-section" & emer_c_sec == "Pre-Labour initiation", "caesarean (Pre-Labour initiation)", # if delivery_mod C-section and emer_c_sec is pre-labour, then pre-labour 
-                                            ifelse(delivery_mod == "C-section" & emer_c_sec == "Post-Labour initiation", "caesarean (Post-Labour initiation)", # if delivery_mod C-section and emer_c_sec is post-labour, then post-labour
-                                            ifelse(delivery_mod == "C-section" & emer_c_sec == "Not applicable", "caesarean (Other)", NA)))))))) # if delivery_mod C-section and emer_c_sec isnot applicable, then caesarean (other). Also if data fits no category then NA
-
-table(as.factor(combined_dataframe$combined_delivery_mod), combined_dataframe$bin_apgar,useNA = "ifany")
-
-
 ###### Tidy Koppen ######
 # remove unused levels
 print(levels(combined_dataframe$Koppen))
@@ -364,7 +333,7 @@ analyze_variables <- function(var1, var2, data) { #var1 will be the category, va
   print(chi_sq_test)}
 
 # List of variables to analyze 
-variables <- c("bin_mage", "bin_edu", "ethnicity", "bin_parity_2", "bin_prenatal_care", "combined_delivery_mod", "sex", "Koppen")  
+variables <- c("bin_mage", "bin_edu", "ethnicity", "bin_parity_2", "bin_prenatal_care", "sex", "Koppen")  
 
 # Loop through the list
 for (var in variables) {
@@ -398,7 +367,7 @@ combined_dataframe$q_IBP_chi <- NULL
 low_apgar_df <- combined_dataframe[combined_dataframe$bin_apgar == "Low Apgar", ]
 
 # Select specific columns
-low_apgar_df <- low_apgar_df[, c("birth_municip", "dob", "clean_apgar", "bin_apgar","sex", "bin_parity_2", "delivery_mod",  "emer_c_sec", "combined_delivery_mod", "bin_prenatal_care", "bin_mage", "ethnicity", "bin_edu", "q_IBP", "Koppen"  )]
+low_apgar_df <- low_apgar_df[, c("birth_municip", "dob", "clean_apgar", "bin_apgar","sex", "bin_parity_2", "bin_prenatal_care", "bin_mage", "ethnicity", "bin_edu", "q_IBP", "Koppen"  )]
 
 # reoder by date of birth
 low_apgar_df <- low_apgar_df[order(low_apgar_df$dob), ]

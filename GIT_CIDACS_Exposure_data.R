@@ -19,9 +19,8 @@
 # Load datasets #
 ############################################################
 
-setwd("~/Documents/LSHTM project/Updated exposures")
-load("Updated_exposures.RData")
-setwd("~/Documents/LSHTM project/R code")
+setwd()
+load("Updated_exposures copy.RData")
 birth_count <- read.csv("GIT_ts_dataset.csv")
 
 ############################################################

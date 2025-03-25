@@ -19,7 +19,7 @@
 # Load datasets #
 ############################################################
 
-setwd("~/Documents/LSHTM project/R code")
+setwd()
 data <- read.csv("GIT_CCdataset.csv")
 
 library(dlnm); library(survival);library(splines)

@@ -19,10 +19,8 @@
 # Load datasets #
 ############################################################
 
-setwd("~/Documents/LSHTM project/Updated exposures")
-load("Updated_exposures.RData")
-
-setwd("~/Documents/LSHTM project/R code")
+setwd()
+load("Updated_exposures copy.RData")
 low_apgar_df <- read.csv("GIT_health_dataset.csv")
 
 library(data.table)
