@@ -2,7 +2,7 @@
 Short-term ambient heat exposure and low APGAR score in newborns: A time-stratified case-crossover analysis in São Paulo state, Brazil (2013-2019)
 ========================
 
-This study aimed to investigate the short-term effects of ambient heat exposure on 5-minute APGAR scores of 34,980 children born, between 2013-2019, from low-risk newborns in São Paulo state, Brazil. A time-stratified case-crossover analysis combined with a distributed lag nonlinear model was used to assess the association between high (95th vs 50th percentile) and low (5th vs 50th percentile) temperatures on the day of delivery or the preceding day (lags 0 and 1) with low APGAR scores (≤7; sub-categories: 6-7, 3-5, 0-2). Models were stratified by maternal age, race/ethnicity, education, parity, timing of prenatal care initiationaccess, infant sex, delivery mode, municipality-level deprivation and Köppen climate zone. 
+This study aimed to investigate the short-term effects of ambient heat exposure on 5-minute APGAR scores of 34,980 children born, between 2013-2019, from low-risk newborns in São Paulo state, Brazil. A time-stratified case-crossover analysis combined with a distributed lag nonlinear model was used to assess the association between high (95th vs 50th percentile) and low (5th vs 50th percentile) temperatures on the day of delivery or the preceding day (lags 0 and 1) with low APGAR scores (≤7; sub-categories: 6-7, 3-5, 0-2). Models were stratified by maternal age, race/ethnicity, education, parity, timing of prenatal care initiation, infant sex, municipality-level deprivation and Köppen climate zone. 
 
 This repository stores the data and R scripts necessary for performing all analyses. 
 
