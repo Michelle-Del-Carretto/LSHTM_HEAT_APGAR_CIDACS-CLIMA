@@ -83,7 +83,7 @@ end
   H ---> I["**Case-crossover dataset** <br> (GIT_CCdataset.csv)"]
   I ---> J(("**Case-crossover analysis (Main, APGAR categories, Sensitivity)** <br> (GIT_GIDACS_CCmain.R)"))
   I ---> K(("**Case-crossover analysis (Subgroups)** <br> (GIT_GIDACS_CCsubgroup.R)"))
-  G ---> L(("**Exposure dataset processing (e.g.pupulation weighted percentiles)** (GIT_GIDACS_Exposure_data.R)"))
+  G ---> L(("**Exposure dataset processing (e.g.population weighted percentiles)** (GIT_GIDACS_Exposure_data.R)"))
   G ---> M(("**Exposure-Response investigation** <br> (GIT_GIDACS_Exposure_response.R)"))
   F ---> M
   D ---> O["**Complete timeseries data** <br> (GIT_complete_ts_dataset.csv)"]
